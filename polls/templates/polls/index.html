@@ -9,7 +9,10 @@
 {% if latest_question_list %}
   <ul>
   {% for question in latest_question_list %}
-    <li><a href="/polls/{{ question.id }}">{{ question.question_text }}</a></li>
+    <!--li><a href="/polls/{{ question.id }}"-->
+    <!-- to prevent use of hard-coded urls, use the URL template tag and refer to the url.py file -->
+    <!-- "polls:detail" specified to use the detail url in the "polls" namespace -->
+    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
   {% endfor %}
   </ul>
 {% else %}
